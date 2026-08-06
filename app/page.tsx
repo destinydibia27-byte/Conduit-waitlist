@@ -59,18 +59,10 @@ export default function WaitlistPage() {
       }}
     >
       {/* Header */}
-      <header className="flex items-center justify-between px-6 sm:px-10 py-6 max-w-6xl mx-auto">
+      <header className="flex items-center px-6 sm:px-10 py-6 max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
-          <Image src="/conduit-icon.png" alt="" width={36} height={36} unoptimized />
-          <Image src="/conduit-wordmark.png" alt="Conduit" width={140} height={30} unoptimized />
+          <Image src="/conduit-icon.png" alt="Conduit" width={36} height={36} unoptimized />
         </div>
-        <a
-          href="#waitlist-form"
-          className="text-xs px-4 py-2 rounded font-medium transition-opacity hover:opacity-80"
-          style={{ backgroundColor: COLORS.green, color: COLORS.bg }}
-        >
-          Join Waitlist
-        </a>
       </header>
 
       {/* Hero */}
