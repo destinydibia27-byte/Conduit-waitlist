@@ -5,3 +5,5 @@
 .env.local
 .DS_Store
 *.log
+waitlist_backup_*.sql
+waitlist_backup_*.sql
