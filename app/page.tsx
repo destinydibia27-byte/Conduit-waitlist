@@ -59,9 +59,8 @@ export default function WaitlistPage() {
 
   return (
     <main
-      className={monoFont.className}
+      className={`${monoFont.className} min-h-screen min-h-dvh`}
       style={{
-        minHeight: "100vh",
         backgroundColor: COLORS.bg,
         backgroundImage:
           "linear-gradient(#161616 1px, transparent 1px), linear-gradient(90deg, #161616 1px, transparent 1px)",
@@ -137,7 +136,7 @@ export default function WaitlistPage() {
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 rounded px-4 py-3 text-sm focus:outline-none"
+                className="flex-1 rounded px-4 py-3 text-base sm:text-sm focus:outline-none"
                 style={{
                   backgroundColor: "#141414",
                   border: `1px solid ${COLORS.border}`,
