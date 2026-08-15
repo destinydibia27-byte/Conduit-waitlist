@@ -70,9 +70,9 @@ export default function WaitlistPage() {
       }}
     >
       {/* Header */}
-      <header className="flex items-center px-6 sm:px-10 py-6 max-w-6xl mx-auto">
+      <header className="flex items-center px-6 sm:px-10 py-6 w-full">
         <div className="flex items-center gap-2">
-          <Image src="/conduit-icon.png" alt="Conduit" width={80} height={80} unoptimized />
+          <Image src="/conduit-icon.png" alt="Conduit" width={55} height={55} unoptimized />
         </div>
       </header>
 
