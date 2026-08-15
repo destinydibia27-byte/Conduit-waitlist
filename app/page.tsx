@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import Image from "next/image";
 import { Anton, JetBrains_Mono } from "next/font/google";
 
@@ -20,6 +20,16 @@ export default function WaitlistPage() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [count, setCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/waitlist")
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.count === "number") setCount(data.count);
+      })
+      .catch(() => {});
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -40,6 +50,7 @@ export default function WaitlistPage() {
         return;
       }
       setStatus("success");
+      setCount((c) => (c !== null ? c + 1 : c));
     } catch {
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again.");
@@ -95,6 +106,18 @@ export default function WaitlistPage() {
 
         {/* Waitlist form */}
         <div id="waitlist-form" className="mt-12 max-w-md mx-auto">
+          {count !== null && count > 0 && (
+            <p
+              className="mb-4 flex items-center justify-center gap-2 text-xs"
+              style={{ color: COLORS.muted }}
+            >
+              <span
+                className="inline-block rounded-full"
+                style={{ width: 6, height: 6, backgroundColor: COLORS.green }}
+              />
+              Join {count.toLocaleString()} people on the waitlist
+            </p>
+          )}
           {status === "success" ? (
             <div
               className="rounded px-6 py-5 text-sm"

@@ -19,6 +19,16 @@ const pool = new Pool({
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+export async function GET() {
+  try {
+    const result = await pool.query("select count(*)::int as count from waitlist");
+    return NextResponse.json({ count: result.rows[0].count });
+  } catch (err) {
+    console.error("Waitlist count error:", err);
+    return NextResponse.json({ error: "Could not load count." }, { status: 500 });
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
