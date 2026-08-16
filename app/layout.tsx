@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: "Conduit — Join the Waitlist",
   description:
     "Settlement infrastructure for businesses. Invoice in the currency you keep your books in, and let customers and suppliers pay in whatever stablecoin they hold.",
+  icons: {
+    icon: "/conduit-icon.png",
+    shortcut: "/conduit-icon.png",
+    apple: "/conduit-icon.png",
+  },
+};
 };
 
 export default function RootLayout({
