@@ -11,7 +11,6 @@ export const metadata: Metadata = {
     apple: "/conduit-icon.png",
   },
 };
-};
 
 export default function RootLayout({
   children,
